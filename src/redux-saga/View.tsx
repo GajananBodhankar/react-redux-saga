@@ -11,7 +11,13 @@ function View() {
   return (
     <div>
       View
-      <button onClick={() => dispatch(loading())}>GetData</button>
+      <button
+        onClick={() => {
+          dispatch(loading());
+        }}
+      >
+        GetData
+      </button>
       {data.length && data.map((i) => <p key={JSON.stringify(i)}>{i.title}</p>)}
     </div>
   );

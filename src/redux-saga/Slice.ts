@@ -10,17 +10,24 @@ interface Itype {
 interface Idata {
   data: Itype[];
   status: "Idle" | "Loading" | "Success" | "Failed";
+  user: {};
+  value: any;
 }
 
 const initialState: Idata = {
   data: [],
   status: "Idle",
+  user: {},
+  value: null,
 };
 
 const SagaSlice = createSlice({
   name: "sagaSlice",
   initialState: initialState,
   reducers: {
+    setUserValue: (state, action) => {
+      state.value = action.payload;
+    },
     success: (state, action) => {
       console.log("action", action);
       state.data = action.payload;
@@ -38,4 +45,4 @@ const SagaSlice = createSlice({
 });
 
 export const SagaReducer = SagaSlice.reducer;
-export const { success, failed, loading } = SagaSlice.actions;
+export const { success, failed, loading, setUserValue } = SagaSlice.actions;

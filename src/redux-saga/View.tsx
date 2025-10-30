@@ -27,7 +27,7 @@ function View() {
         GetData
       </button>
       <p>{JSON.stringify(user)}</p>
-      {/* {data.length && data.map((i) => <p key={JSON.stringify(i)}>{i.title}</p>)} */}
+      {data.length && data.map((i) => <p key={JSON.stringify(i)}>{i.title}</p>)}
     </div>
   );
 }
